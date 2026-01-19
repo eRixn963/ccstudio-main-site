@@ -1,0 +1,7 @@
+# Netlify configuration for Blog Site (blog.corecodes.org)
+[build]
+  publish = "."
+  command = "echo 'Deploying static blog'"
+
+[build.processing]
+  skip_processing = true

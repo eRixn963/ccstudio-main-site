@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Core Code AI Studio Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-logo">
+                    <div class="logo-icon">
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <rect width="36" height="36" rx="8" fill="url(#logo-gradient)" />
+                            <path d="M12 11L7 18L12 25" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+                            <path d="M24 11L29 18L24 25" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+                            <circle cx="18" cy="13" r="1.5" fill="white" opacity="0.9"/>
+                            <circle cx="18" cy="18" r="2" fill="white" opacity="0.95"/>
+                            <circle cx="18" cy="23" r="1.5" fill="white" opacity="0.9"/>
+                            <line x1="18" y1="13" x2="18" y2="18" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="18" y1="18" x2="18" y2="23" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                            <defs>
+                                <linearGradient id="logo-gradient" x1="0" y1="0" x2="36" y2="36">
+                                    <stop offset="0%" stop-color="#3b82f6" />
+                                    <stop offset="50%" stop-color="#6366f1" />
+                                    <stop offset="100%" stop-color="#8b5cf6" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Admin Panel</span>
+                </div>
+
+                <div class="navbar-actions">
+                    <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+                        <svg id="sunIcon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" />
+                        </svg>
+                        <svg id="moonIcon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style="display: none;">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                        </svg>
+                    </button>
+                    <a href="/" class="btn-secondary">View Blog</a>
+                    <a href="https://corecodes.org" class="btn-primary">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard -->
+    <section class="admin-dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Blog <span class="gradient-text">Management</span></h1>
+                <p class="dashboard-subtitle">Manage your AI-powered blog articles</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="totalArticles">0</div>
+                        <div class="stat-label">Total Articles</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="nextPublish">0h 0m</div>
+                        <div class="stat-label">Next Auto-Publish</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">🤖</div>
+                    <div class="stat-content">
+                        <div class="stat-value">8 Hours</div>
+                        <div class="stat-label">Publish Interval</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="todayArticles">0</div>
+                        <div class="stat-label">Published Today</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auto-Publish Controls -->
+            <div class="control-panel">
+                <h2 class="panel-title">Auto-Publish Settings</h2>
+                <div class="control-card">
+                    <div class="control-row">
+                        <div class="control-info">
+                            <h3>Automatic Publishing</h3>
+                            <p>AI will generate and publish new articles every 8 hours</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="autoPublishToggle" checked onchange="toggleAutoPublish()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="control-row">
+                        <div class="control-info">
+                            <h3>Manual Publish</h3>
+                            <p>Generate and publish a new article immediately</p>
+                        </div>
+                        <button class="btn-action" onclick="manualPublish()">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/>
+                            </svg>
+                            Publish Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create New Article -->
+            <div class="create-panel">
+                <h2 class="panel-title">Create New Article</h2>
+                <div class="form-card">
+                    <form id="articleForm" onsubmit="createArticle(event)">
+                        <div class="form-group">
+                            <label for="articleTitle">Title</label>
+                            <input type="text" id="articleTitle" class="form-input" placeholder="Enter article title" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="articleExcerpt">Excerpt</label>
+                            <textarea id="articleExcerpt" class="form-textarea" rows="3" placeholder="Brief description of the article" required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="articleCategory">Category</label>
+                                <select id="articleCategory" class="form-select" required>
+                                    <option value="">Select Category</option>
+                                    <option value="AI">AI</option>
+                                    <option value="Cognitive Effect">Cognitive Effect</option>
+                                    <option value="AI and the Human Brain">AI and the Human Brain</option>
+                                    <option value="AI Models">AI Models</option>
+                                    <option value="News">News</option>
+                                    <option value="Agents">Agents</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="articleIcon">Icon (Emoji)</label>
+                                <input type="text" id="articleIcon" class="form-input" placeholder="🤖" maxlength="2" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"/>
+                            </svg>
+                            Create Article
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Articles List -->
+            <div class="articles-panel">
+                <h2 class="panel-title">Published Articles</h2>
+                <div id="articlesTable" class="articles-table">
+                    <!-- Articles will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="admin-script.js"></script>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+            
+            body.classList.toggle('light-theme');
+            
+            if (body.classList.contains('light-theme')) {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+                localStorage.setItem('theme', 'light');
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+                document.getElementById('sunIcon').style.display = 'none';
+                document.getElementById('moonIcon').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

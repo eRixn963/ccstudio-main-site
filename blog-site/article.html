@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article - Core Code AI Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="article-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-logo">
+                    <div class="logo-icon">
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <rect width="36" height="36" rx="8" fill="url(#logo-gradient)" />
+                            <path d="M12 11L7 18L12 25" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+                            <path d="M24 11L29 18L24 25" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+                            <circle cx="18" cy="13" r="1.5" fill="white" opacity="0.9"/>
+                            <circle cx="18" cy="18" r="2" fill="white" opacity="0.95"/>
+                            <circle cx="18" cy="23" r="1.5" fill="white" opacity="0.9"/>
+                            <line x1="18" y1="13" x2="18" y2="18" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="18" y1="18" x2="18" y2="23" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                            <defs>
+                                <linearGradient id="logo-gradient" x1="0" y1="0" x2="36" y2="36">
+                                    <stop offset="0%" stop-color="#3b82f6" />
+                                    <stop offset="50%" stop-color="#6366f1" />
+                                    <stop offset="100%" stop-color="#8b5cf6" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <a href="https://corecodes.org" style="text-decoration: none; color: inherit;">
+                        <span class="logo-text">Core Code AI Studio</span>
+                    </a>
+                </div>
+
+                <ul class="navbar-menu">
+                    <li class="nav-item">
+                        <a href="https://corecodes.org#features">Features</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="https://corecodes.org#solutions">Solutions <span class="dropdown-arrow">▼</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://corecodes.org#blogs">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://corecodes.org#pricing">Pricing</a>
+                    </li>
+                </ul>
+
+                <div class="navbar-actions">
+                    <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+                        <svg id="sunIcon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" />
+                        </svg>
+                        <svg id="moonIcon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style="display: none;">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                        </svg>
+                    </button>
+                    <button class="btn-login">Login</button>
+                    <a href="admin.html" class="btn-primary" style="text-decoration: none;">Admin Dashboard</a>
+                </div>
+
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="https://corecodes.org#features">Features</a>
+                <a href="https://corecodes.org#solutions">Solutions</a>
+                <a href="https://corecodes.org#blogs">Blogs</a>
+                <a href="https://corecodes.org#pricing">Pricing</a>
+                <div class="mobile-actions">
+                    <button class="btn-login">Login</button>
+                    <a href="admin.html" class="btn-primary" style="text-decoration: none;">Admin Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <article class="article-page">
+        <div class="container-article">
+            <!-- Back to Blog -->
+            <a href="/" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+                </svg>
+                Back to Blog
+            </a>
+
+            <!-- Article Header -->
+            <header class="article-header">
+                <div class="article-meta-top">
+                    <span class="article-category" id="articleCategory">Loading...</span>
+                    <span class="article-date" id="articleDate">📅 Loading...</span>
+                </div>
+                
+                <h1 class="article-title-main" id="articleTitle">Loading Article...</h1>
+                
+                <div class="article-author-info">
+                    <div class="author-avatar-large" id="authorAvatar">AI</div>
+                    <div class="author-details">
+                        <div class="author-name" id="authorName">AI Studio</div>
+                        <div class="author-meta">
+                            <span id="readTime">5 min read</span>
+                            <span>•</span>
+                            <span id="articleViews">1.2K views</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Article Icon/Image -->
+            <div class="article-hero" id="articleHero">
+                <div class="hero-icon" id="articleIcon">🤖</div>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body" id="articleContent">
+                <!-- Content will be loaded here -->
+            </div>
+
+            <!-- Reading Progress Bar -->
+            <div class="reading-progress-container">
+                <div class="reading-progress-bar" id="readingProgress"></div>
+            </div>
+
+            <!-- Article Actions -->
+            <div class="article-actions-bar">
+                <button class="action-btn bookmark-btn" onclick="toggleBookmark()" id="bookmarkBtn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 2h10a1 1 0 011 1v16l-6-3-6 3V3a1 1 0 011-1z"/>
+                    </svg>
+                    <span>Save</span>
+                </button>
+                <div class="action-divider"></div>
+                <button class="action-btn like-btn" onclick="toggleLike()" id="likeBtn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+                    </svg>
+                    <span id="likeCount">0</span>
+                </button>
+            </div>
+
+            <!-- Share Section -->
+            <div class="article-share">
+                <h3>Share this article</h3>
+                <div class="share-buttons">
+                    <button class="share-btn" onclick="shareArticle('twitter')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                        </svg>
+                        Twitter
+                    </button>
+                    <button class="share-btn" onclick="shareArticle('facebook')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                        </svg>
+                        Facebook
+                    </button>
+                    <button class="share-btn" onclick="shareArticle('linkedin')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                        LinkedIn
+                    </button>
+                    <button class="share-btn" onclick="copyLink()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+                        </svg>
+                        Copy Link
+                    </button>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="comments-section" id="commentsSection">
+                <h2 class="comments-title">Comments (<span id="commentCount">0</span>)</h2>
+                
+                <!-- Comment Form -->
+                <form class="comment-form" onsubmit="postComment(event)">
+                    <div class="comment-avatar">💬</div>
+                    <div class="comment-form-content">
+                        <input type="text" id="commentName" class="comment-input" placeholder="Your name" required />
+                        <textarea id="commentText" class="comment-textarea" placeholder="Share your thoughts..." rows="3" required></textarea>
+                        <div class="comment-form-actions">
+                            <button type="submit" class="comment-submit-btn">Post Comment</button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Comments List -->
+                <div class="comments-list" id="commentsList">
+                    <!-- Comments will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="related-articles">
+                <h2 class="related-title">Related Articles</h2>
+                <div class="related-grid" id="relatedArticles">
+                    <!-- Related articles will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <script src="article-script.js"></script>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+            
+            body.classList.toggle('light-theme');
+            
+            if (body.classList.contains('light-theme')) {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+                localStorage.setItem('theme', 'light');
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+                document.getElementById('sunIcon').style.display = 'none';
+                document.getElementById('moonIcon').style.display = 'block';
+            }
+        });
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Dropdown menu functions
+        let dropdownTimeout;
+
+        function showDropdown(element) {
+            clearTimeout(dropdownTimeout);
+            const dropdown = element.querySelector('.dropdown-menu');
+            if (dropdown) {
+                dropdown.style.display = 'block';
+                setTimeout(() => {
+                    dropdown.classList.add('show');
+                }, 10);
+            }
+        }
+
+        function hideDropdown(element) {
+            clearTimeout(dropdownTimeout);
+            const dropdown = element.querySelector('.dropdown-menu');
+            dropdownTimeout = setTimeout(() => {
+                if (dropdown) {
+                    dropdown.classList.remove('show');
+                    setTimeout(() => {
+                        dropdown.style.display = 'none';
+                    }, 300);
+                }
+            }, 200);
+        }
+
+        function toggleDropdown(element) {
+            const dropdown = element.querySelector('.dropdown-menu');
+            if (dropdown) {
+                const isVisible = dropdown.style.display === 'block';
+                dropdown.style.display = isVisible ? 'none' : 'block';
+            }
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    if (menu) {
+                        menu.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
