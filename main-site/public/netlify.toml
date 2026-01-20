@@ -1,7 +1,0 @@
-# Netlify configuration for Main Site (corecodes.org)
-[build]
-  publish = "."
-  command = "echo 'Deploying static site'"
-
-[build.processing]
-  skip_processing = true
