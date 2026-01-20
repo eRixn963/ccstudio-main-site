@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Code AI Studio - Create Amazing Content with AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-logo">
+                    <div class="logo-icon">
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <!-- Background -->
+                            <rect width="36" height="36" rx="8" fill="url(#logo-gradient)" />
+                            
+                            <!-- Code brackets < > -->
+                            <path d="M12 11L7 18L12 25" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+                            <path d="M24 11L29 18L24 25" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+                            
+                            <!-- AI Neural Network nodes -->
+                            <circle cx="18" cy="13" r="1.5" fill="white" opacity="0.9"/>
+                            <circle cx="18" cy="18" r="2" fill="white" opacity="0.95"/>
+                            <circle cx="18" cy="23" r="1.5" fill="white" opacity="0.9"/>
+                            
+                            <!-- Connection lines -->
+                            <line x1="18" y1="13" x2="18" y2="18" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="18" y1="18" x2="18" y2="23" stroke="white" stroke-width="1.5" opacity="0.6"/>
+                            
+                            <defs>
+                                <linearGradient id="logo-gradient" x1="0" y1="0" x2="36" y2="36">
+                                    <stop offset="0%" stop-color="#3b82f6" />
+                                    <stop offset="50%" stop-color="#6366f1" />
+                                    <stop offset="100%" stop-color="#8b5cf6" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Core Code AI Studio</span>
+                </div>
+
+                <ul class="navbar-menu">
+                    <li class="nav-item">
+                        <a href="#features">Features</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#solutions">Solutions <span class="dropdown-arrow">▼</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#blogs">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pricing">Pricing</a>
+                    </li>
+                </ul>
+
+                <div class="navbar-actions">
+                    <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+                        <svg id="sunIcon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" />
+                        </svg>
+                        <svg id="moonIcon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" style="display: none;">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                        </svg>
+                    </button>
+                    <button class="btn-login">Login</button>
+                    <a href="https://blog.corecodes.org/admin.html" class="btn-primary" style="text-decoration: none;">Admin Dashboard</a>
+                </div>
+
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#features">Features</a>
+                <a href="#solutions">Solutions</a>
+                <a href="#blogs">Blogs</a>
+                <a href="#pricing">Pricing</a>
+                <div class="mobile-actions">
+                    <button class="btn-login">Login</button>
+                    <a href="https://blog.corecodes.org/admin.html" class="btn-primary" style="text-decoration: none;">Admin Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <div class="hero-badge">
+                        <span class="badge-icon">✨</span>
+                        <span>Welcome to Core Code AI Studio</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Unleash the power of <span class="gradient-text">AI</span> and create 
+                        <span class="gradient-text-secondary">amazing content</span> 10x faster
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Machine learning algorithms build intelligent models based on sample data, 
+                        enabling you to generate elegantly structured content with references in just a few clicks.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <button class="btn-primary-large">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 3.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM2 10a8 8 0 1116 0 8 8 0 01-16 0z"/>
+                                <path d="M10 7a.75.75 0 01.75.75v2.5h2.5a.75.75 0 010 1.5h-2.5v2.5a.75.75 0 01-1.5 0v-2.5h-2.5a.75.75 0 010-1.5h2.5v-2.5A.75.75 0 0110 7z"/>
+                            </svg>
+                            Get Started Free
+                        </button>
+                        
+                        <a href="https://blog.corecodes.org" class="btn-secondary-large" style="text-decoration: none;">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+                            </svg>
+                            Check out our Blog!
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">100% Free</div>
+                            <div class="stat-label">to get started</div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <div class="stat-value">No credit card</div>
+                            <div class="stat-label">required</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-right">
+                    <div class="hero-visual">
+                        <div class="floating-element element-1">
+                            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                                <circle cx="30" cy="30" r="28" fill="url(#grad1)" opacity="0.2"/>
+                                <circle cx="30" cy="30" r="20" fill="url(#grad1)"/>
+                                <path d="M30 20v20M20 30h20" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="grad1" x1="0" y1="0" x2="60" y2="60">
+                                        <stop offset="0%" stop-color="#3b82f6"/>
+                                        <stop offset="100%" stop-color="#8b5cf6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        
+                        <div class="floating-element element-2">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none">
+                                <rect width="50" height="50" rx="10" fill="url(#grad2)" opacity="0.8"/>
+                                <path d="M15 25l8 8 12-16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="grad2" x1="0" y1="0" x2="50" y2="50">
+                                        <stop offset="0%" stop-color="#10b981"/>
+                                        <stop offset="100%" stop-color="#06b6d4"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        
+                        <div class="floating-element element-3">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="18" fill="url(#grad3)"/>
+                                <path d="M20 12v16M12 20h16" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="grad3" x1="0" y1="0" x2="40" y2="40">
+                                        <stop offset="0%" stop-color="#f59e0b"/>
+                                        <stop offset="100%" stop-color="#ef4444"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        
+                        <div class="hero-mockup">
+                            <div class="mockup-window">
+                                <div class="mockup-header">
+                                    <div class="mockup-dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <div class="mockup-title">AI Content Generator</div>
+                                </div>
+                                <div class="mockup-content">
+                                    <div class="mockup-toolbar">
+                                        <div class="toolbar-group">
+                                            <button class="toolbar-btn">B</button>
+                                            <button class="toolbar-btn">I</button>
+                                            <button class="toolbar-btn">U</button>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-text">
+                                        <div class="text-line">
+                                            <span class="text-title">The Importance of Business Metrics</span>
+                                        </div>
+                                        <div class="text-line short"></div>
+                                        <div class="text-line"></div>
+                                        <div class="text-line"></div>
+                                        <div class="text-line medium"></div>
+                                        <div class="text-line"></div>
+                                        <div class="text-line short"></div>
+                                    </div>
+                                </div>
+                                <div class="ai-indicator">
+                                    <span class="ai-pulse"></span>
+                                    <span>AI Writing...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="rgba(26, 35, 50, 0.5)"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blogs-section" id="blogs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><span class="gradient-text">Core Code AI Studio</span> - Top Blogs in 2026</h2>
+                <p class="section-description">Discover the latest insights in artificial intelligence and technology</p>
+            </div>
+
+            <!-- First Row (Always Visible - Newest 3) -->
+            <div class="blogs-grid blogs-grid-visible">
+                <!-- Blog Card 1 - CCStudio AI Blog -->
+                <div class="blog-card featured-blog">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder">
+                            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                                <circle cx="60" cy="60" r="50" fill="url(#blogGrad1)" opacity="0.2"/>
+                                <path d="M40 50h40M40 60h40M40 70h30" stroke="url(#blogGrad1)" stroke-width="4" stroke-linecap="round"/>
+                                <circle cx="85" cy="35" r="15" fill="url(#blogGrad1)"/>
+                                <path d="M85 30v10M80 35h10" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="blogGrad1" x1="0" y1="0" x2="120" y2="120">
+                                        <stop offset="0%" stop-color="#3b82f6"/>
+                                        <stop offset="100%" stop-color="#8b5cf6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="blog-badge">Latest</div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">🗓️ Active Since Jan 2026</span>
+                            <span class="blog-status">🟢 Auto-Publishing</span>
+                        </div>
+                        <h3 class="blog-card-title">CCStudio - AI Blog</h3>
+                        <p class="blog-card-description">
+                            Discover the latest insights in artificial intelligence, machine learning, and cognitive computing. 
+                            Explore articles on AI models, agents, and their impact on human thinking. Auto-published content every 8 hours.
+                        </p>
+                        <div class="blog-card-tags">
+                            <span class="blog-tag">AI</span>
+                            <span class="blog-tag">Machine Learning</span>
+                            <span class="blog-tag">Tech News</span>
+                        </div>
+                        <a href="https://blog.corecodes.org" class="blog-btn">
+                            Take Me To This Blog
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Placeholder cards for future blogs -->
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#3b82f6"/>
+                                        <stop offset="100%" stop-color="#8b5cf6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">More Blogs Coming Soon</h3>
+                        <p class="blog-card-description">
+                            We're working on bringing you more specialized AI blogs covering different niches and topics. Stay tuned for exciting new content!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon2)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon2" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#06b6d4"/>
+                                        <stop offset="100%" stop-color="#10b981"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">More Blogs Coming Soon</h3>
+                        <p class="blog-card-description">
+                            We're working on bringing you more specialized AI blogs covering different niches and topics. Stay tuned for exciting new content!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Rows (Will expand on click) -->
+            <div class="blogs-grid blogs-grid-hidden" id="hiddenBlogs" style="display: none;">
+                <!-- Row 2 -->
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon3)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon3" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#f59e0b"/>
+                                        <stop offset="100%" stop-color="#ef4444"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Tech & Development Blog</h3>
+                        <p class="blog-card-description">
+                            Focused on software development, coding tutorials, and technology trends. Coming soon!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon4)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon4" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#ec4899"/>
+                                        <stop offset="100%" stop-color="#8b5cf6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Business Insights Blog</h3>
+                        <p class="blog-card-description">
+                            Business strategies, startup advice, and entrepreneurship insights. Coming soon!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon5)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon5" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#14b8a6"/>
+                                        <stop offset="100%" stop-color="#06b6d4"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Creative & Design Blog</h3>
+                        <p class="blog-card-description">
+                            Design trends, creative workflows, and artistic inspiration. Coming soon!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon6)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon6" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#8b5cf6"/>
+                                        <stop offset="100%" stop-color="#ec4899"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Data Science Blog</h3>
+                        <p class="blog-card-description">
+                            Deep dives into data analysis, statistics, and machine learning applications. Coming soon!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon7)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon7" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#06b6d4"/>
+                                        <stop offset="100%" stop-color="#3b82f6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Cloud Computing Blog</h3>
+                        <p class="blog-card-description">
+                            Cloud infrastructure, DevOps practices, and modern deployment strategies. Coming soon!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon8)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon8" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#10b981"/>
+                                        <stop offset="100%" stop-color="#14b8a6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Cybersecurity Blog</h3>
+                        <p class="blog-card-description">
+                            Security best practices, threat analysis, and protecting your digital assets. Coming soon!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon9)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon9" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#ef4444"/>
+                                        <stop offset="100%" stop-color="#f59e0b"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Mobile Development Blog</h3>
+                        <p class="blog-card-description">
+                            iOS, Android, and cross-platform mobile app development insights. Coming soon!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon10)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon10" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#6366f1"/>
+                                        <stop offset="100%" stop-color="#8b5cf6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Web3 & Blockchain Blog</h3>
+                        <p class="blog-card-description">
+                            Decentralized technologies, smart contracts, and the future of the web. Coming soon!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon11)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon11" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#ec4899"/>
+                                        <stop offset="100%" stop-color="#ef4444"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">UX/UI Design Blog</h3>
+                        <p class="blog-card-description">
+                            User experience principles, interface design, and product design best practices. Coming soon!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon12)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon12" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#14b8a6"/>
+                                        <stop offset="100%" stop-color="#10b981"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Digital Marketing Blog</h3>
+                        <p class="blog-card-description">
+                            SEO strategies, content marketing, and social media growth tactics. Coming soon!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon13)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon13" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#f59e0b"/>
+                                        <stop offset="100%" stop-color="#ef4444"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Productivity & Tools Blog</h3>
+                        <p class="blog-card-description">
+                            Efficiency tips, tool reviews, and workflows to boost your productivity. Coming soon!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="blog-card blog-card-placeholder">
+                    <div class="blog-image">
+                        <div class="blog-image-placeholder coming-soon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="30" stroke="url(#comingSoon14)" stroke-width="3" stroke-dasharray="5 5" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Coming</text>
+                                <text x="40" y="60" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="16" font-weight="600">Soon</text>
+                                <defs>
+                                    <linearGradient id="comingSoon14" x1="0" y1="0" x2="80" y2="80">
+                                        <stop offset="0%" stop-color="#3b82f6"/>
+                                        <stop offset="100%" stop-color="#06b6d4"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Future Tech Blog</h3>
+                        <p class="blog-card-description">
+                            Emerging technologies, innovation trends, and the future of computing. Coming soon!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blogs-section-footer">
+                <button class="btn-show-all" id="showAllBtn" onclick="toggleAllBlogs()">
+                    <span id="btnText">Show All Blogs</span>
+                    <svg id="btnIcon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleAllBlogs() {
+            const hiddenBlogs = document.getElementById('hiddenBlogs');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+            const showAllBtn = document.getElementById('showAllBtn');
+            
+            if (hiddenBlogs.style.display === 'none') {
+                // Show all blogs
+                hiddenBlogs.style.display = 'grid';
+                btnText.textContent = 'Show Less';
+                btnIcon.innerHTML = '<path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/>';
+                showAllBtn.classList.add('expanded');
+            } else {
+                // Hide blogs
+                hiddenBlogs.style.display = 'none';
+                btnText.textContent = 'Show All Blogs';
+                btnIcon.innerHTML = '<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>';
+                showAllBtn.classList.remove('expanded');
+                
+                // Scroll back to blog section
+                document.getElementById('blogs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+
+    <!-- Trusted By Section -->
+    <section class="trusted-by">
+        <div class="container">
+            <p class="trusted-title">
+                Join hundreds of teams that rely on our AI Article Writer to create better content faster
+            </p>
+            <div class="companies-grid">
+                <div class="company-card">
+                    <span class="company-icon">☁️</span>
+                    <span class="company-name">Cloudly</span>
+                </div>
+                <div class="company-card">
+                    <span class="company-icon">🚀</span>
+                    <span class="company-name">Startup</span>
+                </div>
+                <div class="company-card">
+                    <span class="company-icon">🔷</span>
+                    <span class="company-name">Blockly</span>
+                </div>
+                <div class="company-card">
+                    <span class="company-icon">📊</span>
+                    <span class="company-name">Marketly</span>
+                </div>
+                <div class="company-card">
+                    <span class="company-icon">🏛️</span>
+                    <span class="company-name">Architect</span>
+                </div>
+            </div>
+            <button class="btn-cta">Start Free Trial</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="features-header">
+                <h2 class="features-title">
+                    Powerful Features for <span class="gradient-text">Modern Content Creation</span>
+                </h2>
+                <p class="features-description">
+                    Everything you need to create, optimize, and scale your content production
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AI-Powered Generation</h3>
+                    <p class="feature-description">Advanced machine learning algorithms create high-quality content tailored to your needs in seconds.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-description">Generate comprehensive articles, blog posts, and documents 10x faster than traditional writing methods.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Smart Targeting</h3>
+                    <p class="feature-description">Intelligent content optimization ensures your message reaches the right audience with maximum impact.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3 class="feature-title">Multiple Formats</h3>
+                    <p class="feature-description">Create blog posts, articles, social media content, emails, and more with a single platform.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3 class="feature-title">Reference Integration</h3>
+                    <p class="feature-description">Automatically include citations and references from reliable sources to boost credibility.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Multi-Language</h3>
+                    <p class="feature-description">Generate content in over 25 languages with native-level fluency and cultural awareness.</p>
+                </div>
+            </div>
+
+            <div class="features-cta">
+                <h3 class="cta-title">Ready to transform your content creation?</h3>
+                <p class="cta-description">Start generating amazing content with AI today</p>
+                <div class="cta-actions">
+                    <button class="btn-primary-large">Get Started for Free</button>
+                    <button class="btn-secondary-large">View Pricing Plans</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Dropdown menu functions
+        let dropdownTimeout;
+
+        function showDropdown(element) {
+            clearTimeout(dropdownTimeout);
+            const dropdown = element.querySelector('.dropdown-menu');
+            if (dropdown) {
+                dropdown.style.display = 'block';
+                // Trigger animation
+                setTimeout(() => {
+                    dropdown.classList.add('show');
+                }, 10);
+            }
+        }
+
+        function hideDropdown(element) {
+            clearTimeout(dropdownTimeout);
+            const dropdown = element.querySelector('.dropdown-menu');
+            dropdownTimeout = setTimeout(() => {
+                if (dropdown) {
+                    dropdown.classList.remove('show');
+                    setTimeout(() => {
+                        dropdown.style.display = 'none';
+                    }, 300);
+                }
+            }, 200);
+        }
+
+        function toggleDropdown(element) {
+            const dropdown = element.querySelector('.dropdown-menu');
+            if (dropdown) {
+                const isVisible = dropdown.style.display === 'block';
+                dropdown.style.display = isVisible ? 'none' : 'block';
+            }
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.nav-item.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    if (menu) {
+                        menu.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Theme Toggle Functionality
+        function toggleTheme() {
+            const body = document.body;
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+            
+            body.classList.toggle('light-theme');
+            
+            // Toggle icon visibility
+            if (body.classList.contains('light-theme')) {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+                localStorage.setItem('theme', 'light');
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const body = document.body;
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+            
+            if (savedTheme === 'light') {
+                body.classList.add('light-theme');
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
